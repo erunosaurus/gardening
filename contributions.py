@@ -12,8 +12,8 @@ MESSAGE = [
     "X   X  XXXXX     X     X      XXXXX  X    X      X   "
 ]
 
-STARTING_YEAR = 2024
-STARTING_WEEK = 44
+STARTING_WEEK = 8
+STARTING_YEAR = 2025
 
 def create_commit(repo, date):
     # Create an empty commit

@@ -1,6 +1,7 @@
 import os
 from datetime import date, timedelta
 from github import Github
+from github.InputGitAuthor import InputGitAuthor
 
 MESSAGE = [
     "X   X  XXXXX   XX XX   XXXXX  X    XXXXX  XXXXX  X   ",
@@ -24,7 +25,7 @@ def create_commit(repo, date):
         f"Contribution on {date.isoformat()}",
         contents.sha,
         branch="main",
-        committer=Github.InputGitAuthor(
+        committer=InputGitAuthor(
             name="GitHub Action",
             email="action@github.com",
             date=date.isoformat()

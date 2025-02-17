@@ -1,9 +1,12 @@
-name: GitHub Gardening
+name: timeline
 
 on:
   schedule:
     - cron: '0 2 * * *'  # Run daily at 2 AM UTC
-  workflow_dispatch:  # Allow manual trigger
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   create-contribution:
@@ -12,7 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0  # All history
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -29,7 +32,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Push changes
+      - name: Commit changes
         run: |
           git config --global user.name 'GitHub Action'
           git config --global user.email 'action@github.com'
